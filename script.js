@@ -3,15 +3,18 @@ const box = document.getElementById('box');
 const applyButton = document.getElementById('apply-btn');
 const resetButton = document.getElementById('reset-btn');
 
-if (applyButton && colorInput && box) {
+const userService = colorInput && box
+  ? new UserService(colorInput, box)
+  : null;
+
+if (applyButton && userService) {
   applyButton.addEventListener('click', function () {
-    box.style.backgroundColor = colorInput.value;
+    userService.applyColor();
   });
 }
 
-if (resetButton && colorInput && box) {
+if (resetButton && userService) {
   resetButton.addEventListener('click', function () {
-    colorInput.value = '';
-    box.style.backgroundColor = '';
+    userService.resetColor();
   });
 }
