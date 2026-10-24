@@ -1,13 +1,15 @@
 class UserService {
-  constructor(box) {
+  constructor(colorInput, box) {
+    this.colorInput = colorInput;
     this.box = box;
   }
 
-  applyColor(color) {
-    this.box.style.backgroundColor = color;
+  applyColor() {
+    this.box.style.backgroundColor = this.colorInput.value;
   }
 
   resetColor() {
+    this.colorInput.value = '';
     this.box.style.backgroundColor = '';
   }
 }
